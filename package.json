@@ -4,7 +4,8 @@
   "description": "Interface with the teamspeak filesystem",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "jsdoc2md ./index.js --template ./TEMPLATE.md > README.md"
   },
   "repository": {
     "type": "git",
