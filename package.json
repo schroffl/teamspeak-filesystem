@@ -1,0 +1,22 @@
+{
+  "name": "teamspeak-filesystem",
+  "version": "0.1.0",
+  "description": "Interface with the teamspeak filesystem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schroffl/teamspeak-filesystem.git"
+  },
+  "keywords": [
+    "teamspeak"
+  ],
+  "author": "schroffl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/schroffl/teamspeak-filesystem/issues"
+  },
+  "homepage": "https://github.com/schroffl/teamspeak-filesystem#readme"
+}
