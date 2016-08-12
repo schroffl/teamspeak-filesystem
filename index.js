@@ -2,7 +2,6 @@
 
 const path = require('path');
 const net = require('net');
-const Readable = require('stream').Readable;
 
 /**
  * Generate a random id to identify the file transfer
