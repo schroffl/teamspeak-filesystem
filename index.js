@@ -13,6 +13,15 @@ const generateFTID = () => Math.round(Math.random() * 0xFF);
 /**
  * Wrapper to interface with the teamspeak filesystem
  *
+ * @module     TeamspeakFS
+ *
+ * @example
+ * const TeamspeakQuery = require('teamspeak-query');
+ * const TeamspeakFS = require('teamspeak-filesystem');
+ * 
+ * const query = new TeamspeakQuery(); 
+ * const tsfs = TeamspeakFS(query);
+ *
  * @param      {Object}  query   Instance of teamspeak-query
  */
 const TeamspeakFS = module.exports = query => ({
@@ -20,12 +29,12 @@ const TeamspeakFS = module.exports = query => ({
 	/**
 	 * Upload a file
 	 *
-	 * @memberof TeamspeakFS
+	 * @memberof   module:TeamspeakFS
 	 *
 	 * @param      {Number}   cid      The channel in which to upload the file
 	 *                                 (given by its id)
 	 * @param      {String}   name     The name of the file
-	 * @param      {*}        data     The content of the file
+	 * @param      {Any}      data     The content of the file
 	 * @param      {Object}   options  Any other options (passed to
 	 *                                 TeamspeakQuery.send)
 	 * @return     {Promise}  Resolves and rejects according to the success of
@@ -49,13 +58,13 @@ const TeamspeakFS = module.exports = query => ({
 	/**
 	 * Download a file
 	 *
-	 * @memberof TeamspeakFS
+	 * @memberof   module:TeamspeakFS
 	 *
 	 * @param      {Number}      cid      The channel in which the file is saved
 	 * @param      {String}      name     The name of the file
 	 * @param      {Object}      options  Any other options (passed to
 	 *                                    TeamspeakQuery.send)
-	 * @return     {net.Socket}  A socket to read the files data from
+	 * @return     {net.Socket}  A stream containing the files content
 	 */
 	'download': (cid, name, options) => {
 		return query.send('ftinitdownload', Object.assign({ 'clientftfid': generateFTID(), name, cid, 'cpw': '', 'seekpos': 0 }, options))
@@ -72,17 +81,17 @@ const TeamspeakFS = module.exports = query => ({
 
 	/**
 	 * Get a list of currently running file transfers
-	 * 
-	 * @memberof TeamspeakFS
+	 *
+	 * @memberof   module:TeamspeakFS
 	 */
 	'currentTransfers': () => query.send('ftlist'),
 
 	/**
 	 * Get all files in a channel for a given path
-	 * 
-	 * @memberof TeamspeakFS
 	 *
-	 * @param      {Number}  cid     The channel of the file 
+	 * @memberof   module:TeamspeakFS
+	 *
+	 * @param      {Number}  cid     The channel of the file
 	 * @param      {String}  path    The path
 	 * @param      {String}  cpw     The channel password (if needed)
 	 * @return     {Array}   A list of files in the channel.
@@ -96,8 +105,8 @@ const TeamspeakFS = module.exports = query => ({
 
 	/**
 	 * Gets information about a given file
-	 * 
-	 * @memberof TeamspeakFS
+	 *
+	 * @memberof   module:TeamspeakFS
 	 *
 	 * @param      {Number}  cid     The channel of the file
 	 * @param      {String}  name    The path to the file
@@ -108,8 +117,8 @@ const TeamspeakFS = module.exports = query => ({
 
 	/**
 	 * Delete a file
-	 * 
-	 * @memberof TeamspeakFS
+	 *
+	 * @memberof   module:TeamspeakFS
 	 *
 	 * @param      {Number}  cid     The channel of the file
 	 * @param      {String}  name    The path to the file
@@ -120,7 +129,7 @@ const TeamspeakFS = module.exports = query => ({
 	/**
 	 * Create a directory
 	 *
-	 * @memberof TeamspeakFS
+	 * @memberof   module:TeamspeakFS
 	 *
 	 * @param      {Number}  cid      The channel of the file
 	 * @param      {String}  dirname  The path of the directory
@@ -130,8 +139,8 @@ const TeamspeakFS = module.exports = query => ({
 
 	/**
 	 * Rename a given file
-	 * 
-	 * @memberof TeamspeakFS
+	 *
+	 * @memberof   module:TeamspeakFS
 	 *
 	 * @param      {Number}  cid      The channel of the file
 	 * @param      {String}  oldname  The old/current name
