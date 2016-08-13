@@ -1,6 +1,6 @@
 {
   "name": "teamspeak-filesystem",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Interface with the teamspeak filesystem",
   "main": "index.js",
   "scripts": {
